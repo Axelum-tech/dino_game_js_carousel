@@ -20,6 +20,8 @@ const TITLES=[
 
 let currentIndex = 0
 let dir ="left"
+// let play= setInterval(next,3000)
+let playVar=false
 
 
 
@@ -87,46 +89,50 @@ function showIndicators (n){
     }
 }
 
+function stop(){
+    if (playVar==true){
+        clearInterval(play)
+        playVar=false
+    }else if (playVar==false){
+        play=setInterval(next,3000)
+        playVar=true
+
+               
+    }
+}
+
+function action(){
+    switch(event.key){
+        case "ArrowLeft":
+            if (currentIndex>0){
+                // HW7* left/right with keys
+                showImagePrev(--currentIndex)
+                showIndicators(currentIndex) 
+                showTitile(currentIndex)  
+            }else if (currentIndex==0){
+                currentIndex=2
+                showImagePrev(currentIndex)
+                showIndicators(currentIndex) 
+                showTitile(currentIndex)  
+            }      
+            break
+        case "ArrowRight":
+            if (currentIndex<2){
+                // HW7* left/right with keys
+                showImage(++currentIndex)
+                showIndicators(currentIndex) 
+                showTitile(currentIndex)  
+            }else if (currentIndex==2){
+                currentIndex=0
+                showImage(currentIndex)
+                showIndicators(currentIndex) 
+                showTitile(currentIndex)    
+            }   
+            break     
+}
+}
 
 
-function play(){
-      setInterval(next,3000)
- }
-
-// function pause(){
-//         clearInterval(play)
-// }
-
-// function action(){
-//     switch (event.key){
-//     case "ArrowRight":
-//         if (currentIndex<IMAGES.length-1){
-//             showImage(++currentIndex)
-//             showIndicators(currentIndex)  
-//             showTitile(currentIndex)     
-//         }else if (currentIndex==IMAGES.length-1){
-//             currentIndex=0
-//             showImage(currentIndex)
-//             showIndicators(currentIndex) 
-//             showTitile(currentIndex)            
-//         }
-//         break
-//     case "ArrowLeft":
-//         if (currentIndex>0){
-//             showImagePrev(--currentIndex)
-//             showIndicators(currentIndex)    
-//             showTitile(currentIndex)  
-//         }else if (currentIndex==0){
-//             currentIndex=2
-//             showImagePrev(currentIndex)
-//             showIndicators(currentIndex) 
-//             showTitile(currentIndex)            
-//         }
-//         break
-//     }
-// }   
-
-    
 
 
 
