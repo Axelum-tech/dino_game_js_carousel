@@ -11,14 +11,14 @@
   
     
 </head>
-<body>
+<body onkeydown="action()">
 
-    <div id="carousel" onkeydown="action()">
+    <div id="carousel">
         <div class="slides" id="carouselSlides"></div>
         <button  class="previous" onclick="prev()"><i class="fas fa-angle-left"></i></button>
         <button class="next" onclick="next()" ><i class="fas fa-angle-right"></i></button>
         <button class="indicators" onclick="fix()" id="carouselIndicators"></button>
-        <button class="playButton" onclick="play()" on ondblclick="pause()"><i class="far fa-play-circle" onclick="play()" ></i></button>
+        <button class="playButton" onclick="stop()"><i class="far fa-play-circle" ></i></button>
         <div id="carouselTitles"></div>
     </div>
     
